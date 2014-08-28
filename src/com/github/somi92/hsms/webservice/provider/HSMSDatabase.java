@@ -5,7 +5,7 @@ import java.util.List;
 
 public class HSMSDatabase {
 
-	List<HSMS> actionList;
+	private List<HSMS> actionList;
 	
 	public void connectToDatabase() {
 		
@@ -29,7 +29,7 @@ public class HSMSDatabase {
 	
 	public HSMS[] AllActions() {
 		
-        return (HSMS[]) actionList.toArray();
+        return actionList.toArray(new HSMS[actionList.size()]);
     }
 
     public HSMS[] ActionsByPriority(int priority)
@@ -44,6 +44,6 @@ public class HSMSDatabase {
             }
         }
 
-        return (HSMS[]) actionsByPriority.toArray();
+        return actionsByPriority.toArray(new HSMS[actionsByPriority.size()]);
     }
 }
